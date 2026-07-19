@@ -22,6 +22,11 @@ ColumnLayout {
         }
         return "../icons/sessions/default.svg";
     }
+    function setCurrentIndex(idx) {
+        if (idx < 0 || idx >= sessionModel.rowCount())
+            return;
+        sessionList.currentIndex = idx;
+    }
 
     ListView {
         id: sessionList

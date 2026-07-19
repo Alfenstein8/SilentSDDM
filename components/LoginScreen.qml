@@ -17,6 +17,18 @@ Item {
             stateChanging = false;
         }
     }
+    function applyPreferredSession(username) {
+        var preferred = Config.getPreferredSession(username);
+        if (preferred === "")
+            return;
+        for (var i = 0; i < sessionModel.rowCount(); i++) {
+            var sName = sessionModel.data(sessionModel.index(i, 0), 260);
+            if (sName && sName.toLowerCase().includes(preferred.toLowerCase())) {
+                loginScreen.sessionIndex = i;
+                break;
+            }
+        }
+    }
     onStateChanged: {
         if (state === "normal") {
             resetFocus();
@@ -225,6 +237,7 @@ Item {
                     loginScreen.userRealName = realName;
                     loginScreen.userIcon = icon;
                     loginScreen.userNeedsPassword = needsPassword;
+                    Qt.callLater(loginScreen.applyPreferredSession, name);
                 }
             }
 

@@ -80,6 +80,7 @@ Item {
                 focus: visible
 
                 SessionSelector {
+                    id: sessionSelectorInstance
                     focus: popup.focus
                     onSessionChanged: function (newSessionIndex, sessionIcon, sessionLabel) {
                         loginScreen.sessionIndex = newSessionIndex;
@@ -88,6 +89,17 @@ Item {
                     }
                     onClose: {
                         popup.close();
+                    }
+                    Connections {
+                        target: loginScreen
+                        function onSessionIndexChanged() {
+                            if (sessionSelectorInstance.currentSessionIndex !== loginScreen.sessionIndex) {
+                                sessionSelectorInstance.setCurrentIndex(loginScreen.sessionIndex);
+                                var sName = sessionModel.data(sessionModel.index(loginScreen.sessionIndex, 0), 260);
+                                sessionButton.icon = sessionSelectorInstance.getSessionIcon(sName);
+                                sessionButton.label = sessionButton.showLabel ? sName : "";
+                            }
+                        }
                     }
                 }
 

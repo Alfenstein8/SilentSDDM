@@ -1933,6 +1933,15 @@ File in `icons/`
 
 `none`   `digits`
 
+</td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><th align="right">Category</th><th align="left">Option</th><th>Type</th><th>Default value</th><th align="left">Possible values</th></tr><tr><td rowspan="1" align="right"><a href="#preferredsessions">[LoginScreen.PreferredSessions]</a></td><td align="left">
+<a href="#preferredsessionsuser">[nameofuser]</a>
+</td>
+<td align="center">string</td>
+<td align="center"></td>
+<td align="left">
+
+Any substring of the session name as shown in the session selector (e.g. `niri`, `plasma`, `hyprland`)
+
 </td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><th align="right">Category</th><th align="left">Option</th><th>Type</th><th>Default value</th><th align="left">Possible values</th></tr><tr><td rowspan="9" align="right"><a href="#tooltips">[Tooltips]</a></td><td align="left">
 <a href="#tooltipsenable">enable</a>
 </td>
@@ -6820,6 +6829,32 @@ File in `icons/`
 <td>
 
 `none`   `digits`
+
+</td>
+</tr>
+</table>
+</details>
+
+-- --
+
+## [LoginScreen.PreferredSessions]
+<details name="preferredsessions">
+<summary><strong>[nameofuser]</strong></summary><br/>
+<p>Set a preferred session for a specific user. When that user is selected on the login screen, the theme automatically switches the session selector to the matching session, while still allowing it to be changed manually before logging in.</p></br></br>
+<table>
+<tr>
+<td>Type</td></br>
+<td>string</td>
+</tr>
+<tr>
+<td>Default value</td>
+<td></td>
+</tr>
+<tr>
+<td>Possible values</td>
+<td>
+
+Any substring of the session name as shown in the session selector, case-insensitive (e.g. `niri`, `plasma`, `hyprland`, `GNOME`, or a custom session's own name)
 
 </td>
 </tr>

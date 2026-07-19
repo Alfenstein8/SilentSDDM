@@ -318,4 +318,8 @@ QtObject {
         var ext = ext_arr.length > 1 ? ext_arr[ext_arr.length - 1] : "";
         return `../icons/${iconName}${ext === "" ? ".svg" : ""}`;
     }
+
+    function getPreferredSession(username) {
+        return config[`LoginScreen.PreferredSessions/${username}`] || "";
+    }
 }
